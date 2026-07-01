@@ -1082,6 +1082,12 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
+.download-btn.coming-soon {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 .download-qr {
   text-align: center;
   margin-bottom: 60px;

@@ -52,9 +52,14 @@ export function DownloadApp() {
                 <li><CheckCircle size={16} /> Screen casting support</li>
                 <li><CheckCircle size={16} /> Lightweight (25MB)</li>
               </ul>
-              <a href="https://play.google.com/store" target="_blank" rel="noopener noreferrer" className="download-btn android">
+              <a 
+                href={settings.playStoreUrl || 'https://play.google.com/store'} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className={`download-btn android ${!settings.playStoreUrl ? 'coming-soon' : ''}`}
+              >
                 <Play size={20} />
-                Get it on Google Play
+                {settings.playStoreUrl ? 'Get it on Google Play' : 'Coming Soon'}
               </a>
             </div>
 
@@ -76,9 +81,14 @@ export function DownloadApp() {
                 <li><CheckCircle size={16} /> Siri integration</li>
                 <li><CheckCircle size={16} /> iCloud sync</li>
               </ul>
-              <a href="https://apps.apple.com" target="_blank" rel="noopener noreferrer" className="download-btn ios">
+              <a 
+                href={settings.appStoreUrl || 'https://apps.apple.com'} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className={`download-btn ios ${!settings.appStoreUrl ? 'coming-soon' : ''}`}
+              >
                 <Apple size={20} />
-                Download on App Store
+                {settings.appStoreUrl ? 'Download on App Store' : 'Coming Soon'}
               </a>
             </div>
 

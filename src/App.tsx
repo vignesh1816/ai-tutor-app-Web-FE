@@ -176,11 +176,39 @@ function MaintenanceWrapper({ children }: { children: React.ReactNode }) {
   const location = useLocation();
   const { settings, loading } = useSettings();
 
+  // Routes that should NEVER show maintenance mode
+  const publicRoutes = [
+    '/',           // Landing page
+    '/about',
+    '/careers',
+    '/blog',
+    '/press',
+    '/partners',
+    '/help',
+    '/contact',
+    '/faq',
+    '/community',
+    '/feedback',
+    '/privacy',
+    '/terms',
+    '/cookies',
+    '/refund',
+    '/disclaimer',
+    '/download',
+    '/demo',
+    '/sitemap',
+    '/login',
+    '/register',
+  ];
+
+  // Check if current route is public
+  const isPublicRoute = publicRoutes.includes(location.pathname);
+  
   // Allow admin routes to bypass maintenance mode
   const isAdminRoute = location.pathname.startsWith('/admin');
 
-  // Show loading while checking settings
-  if (loading) {
+  // Show loading while checking settings (only for protected routes)
+  if (loading && !isPublicRoute && !isAdminRoute) {
     return (
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', background: '#f5f5f5' }}>
         <div className="loading-spinner"></div>
@@ -188,8 +216,8 @@ function MaintenanceWrapper({ children }: { children: React.ReactNode }) {
     );
   }
 
-  // Show maintenance page if maintenance mode is enabled (except for admin routes)
-  if (settings.maintenanceMode && !isAdminRoute) {
+  // Show maintenance page ONLY for customer protected routes (not public or admin)
+  if (settings.maintenanceMode && !isPublicRoute && !isAdminRoute) {
     return <MaintenancePage />;
   }
 

@@ -291,6 +291,70 @@
   gap: var(--space-md);
 }
 
+/* App Download Buttons */
+.app-download-buttons {
+  margin-top: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+
+.download-label {
+  font-size: 14px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.store-buttons {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.store-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 10px 20px;
+  background: #1C1917;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: all 0.2s;
+  border: 1px solid #333;
+}
+
+.store-btn:hover {
+  background: #292524;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.store-btn svg {
+  width: 28px;
+  height: 28px;
+  color: white;
+}
+
+.store-btn-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.store-btn-label {
+  font-size: 9px;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.store-btn-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  line-height: 1.2;
+}
+
 /* Phone Mockup */
 .hero-visual {
   position: relative;
@@ -918,6 +982,32 @@
   margin-bottom: var(--space-lg);
 }
 
+.cta-store-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.cta-store-buttons > span {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.cta-store-buttons .store-buttons {
+  justify-content: center;
+}
+
+.cta-store-buttons .store-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.cta-store-buttons .store-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
 .cta-trust {
   display: flex;
   align-items: center;
@@ -1019,6 +1109,15 @@
   }
 
   .hero-buttons {
+    justify-content: center;
+  }
+
+  .app-download-buttons {
+    align-items: center;
+    width: 100%;
+  }
+
+  .store-buttons {
     justify-content: center;
   }
 
